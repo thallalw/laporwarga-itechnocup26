@@ -1,7 +1,7 @@
 <div align="center">
   
-  # [NAMA PROYEK] 
-  ### [Tagline Singkat dan Menarik]
+  # [LAPOR WARGA] 
+  ### [Sistem Pelaporan Kerusakan Fasilitas]
   
   [![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Visit_Site-success?style=for-the-badge)](https://[URL_DEMO])
   [![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://[URL_REPO])
