@@ -164,7 +164,7 @@ Kebutuhan sistem (*system requirements*) utama untuk menjalankan aplikasi ini ha
 ```
 Diagram di bawah ini menggambarkan alur kerja aplikasi LaporWarga, mulai dari interaksi pengguna (Warga dan Admin) pada antarmuka *Frontend*, pemrosesan data di *Backend* (PHP), hingga penyimpanan ke Database dan *Local Storage*.
 
-```mermaid
+```
 graph TD
     %% Styling
     classDef user fill:#1D5C4A,stroke:#fff,stroke-width:2px,color:#fff;
@@ -414,7 +414,7 @@ Berikut adalah skenario pengujian yang telah dilakukan untuk memastikan kelancar
 
 Karena proyek ini menggunakan pendekatan pengujian fungsional manual (*Manual Functional Testing*), metrik *code coverage* kuantitatif (seperti persentase *Statements*, *Branches*, *Functions*, dan *Lines*) yang biasanya dihasilkan oleh *tools automated testing* tidak diterapkan. 
 
-Meskipun demikian, kami telah melakukan pengujian menyeluruh dan memastikan bahwa **100% fungsionalitas utama (Core Features)** dari aplikasi LaporWarga—termasuk validasi pelapor, kelancaran form unggah gambar, sistem *upvote*, akses portal admin, dan sinkronisasi notifikasi *real-time*—telah lulus uji coba dan berjalan dengan sempurna di lingkungan lokal.
+Meskipun demikian, kami telah melakukan pengujian menyeluruh dan memastikan bahwa **100% fungsionalitas utama (Core Features)** dari aplikasi LaporWarga termasuk validasi pelapor, kelancaran form unggah gambar, sistem *upvote*, akses portal admin, dan sinkronisasi notifikasi *realtime*—telah lulus uji coba dan berjalan dengan sempurna di lingkungan lokal.
 
 ## 📄 Lisensi
 
