@@ -1,6 +1,7 @@
 <div align="center">
-  <img src="laporwarga.png" alt="Logo LaporWarga" width="150"/>
-  # [NAMA PROYEK] 
+<p align="center">
+    <img src="laporwarga.png" alt="Logo LaporWarga" width="150"/>
+  </p>  # [NAMA PROYEK] 
   ### [Tagline Singkat dan Menarik]
   
   [![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Visit_Site-success?style=for-the-badge)](https://[URL_DEMO])
