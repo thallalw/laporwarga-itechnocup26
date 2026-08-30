@@ -101,14 +101,14 @@
 ### Screenshot Aplikasi
 
 <div align="center">
-  <img src="[URL_SCREENSHOT_1.png]" alt="Homepage" width="800"/>
+  <img src="URL_SCREENSHOT_1.png" alt="Homepage" width="800"/>
   <p><em>Homepage - Menampilkan grafik progres perbaikan dan daftar laporan aktif</em></p>
   
-  <img src="[URL_SCREENSHOT_2.png]" alt="Dashboard" width="800"/>
-  <p><em>Laporan - Tampilan form pengaduan dengan unggah foto bukti</em></p>
+  <img src="URL_SCREENSHOT_2.png" alt="Dashboard" width="800"/>
+  <p><em>Form Laporan - Tampilan form pengaduan dengan unggah foto bukti</em></p>
   
-  <img src="[URL_SCREENSHOT_3.png]" alt="Feature" width="800"/>
-  <p><em>Akses Pengurus - Akses login Ketua RT/RW dan pembaruan status laporan</em></p>
+  <img src="URL_SCREENSHOT_3.png" alt="Feature" width="800"/>
+  <p><em>Portal Pengurus - Akses login Ketua RT/RW dan pembaruan status laporan</em></p>
 </div>
 
 
