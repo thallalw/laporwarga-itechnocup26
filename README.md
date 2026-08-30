@@ -164,7 +164,7 @@ Kebutuhan sistem (*system requirements*) utama untuk menjalankan aplikasi ini ha
 ```
 Diagram di bawah ini menggambarkan alur kerja aplikasi LaporWarga, mulai dari interaksi pengguna (Warga dan Admin) pada antarmuka *Frontend*, pemrosesan data di *Backend* (PHP), hingga penyimpanan ke Database dan *Local Storage*.
 
-```mermaid 
+```mermaid
 graph TD
     %% Styling
     classDef user fill:#1D5C4A,stroke:#fff,stroke-width:2px,color:#fff;
@@ -173,36 +173,35 @@ graph TD
     classDef db fill:#C1432D,stroke:#fff,stroke-width:2px,color:#fff;
 
     %% Actors
-    Warga([Warga / Pelapor]) ::: user
-    Admin([ Admin RT/RW]) ::: user
+    Warga(["Warga / Pelapor"]) ::: user
+    Admin(["Admin RT / RW"]) ::: user
 
     %% System Components
-    subgraph Client [Client Side / Browser]
-        UI[Frontend UI<br/>(HTML, CSS, Vanilla JS)] ::: front
+    subgraph Client ["Client Side / Browser"]
+        UI["Frontend UI (HTML, CSS, Vanilla JS)"] ::: front
     end
 
-    subgraph Server [Server Side / Infinityfree]
-        PHP[Backend System<br/>(PHP Native - index.php)] ::: back
-        Folder[File Storage<br/>(Folder /uploads)] ::: back
+    subgraph Server ["Server Side / Infinityfree"]
+        PHP["Backend System (PHP Native)"] ::: back
+        Folder["File Storage (Folder uploads)"] ::: back
     end
 
-    subgraph DatabaseLayer [Database Layer]
-        DB[(MySQL Database<br/>laporwarga_db)] ::: db
+    subgraph DatabaseLayer ["Database Layer"]
+        DB[("MySQL Database (laporwarga_db)")] ::: db
     end
 
     %% Flows
     Warga -->|Akses Web, Lapor, Upvote| UI
     Admin -->|Login, Update Status| UI
     
-    UI -->|HTTP POST (Submit Form)| PHP
-    UI -.->|AJAX GET (Cek Notif Real-time)| PHP
+    UI -->|HTTP POST| PHP
+    UI -.->|AJAX GET Polling| PHP
     PHP -.->|JSON Response| UI
     PHP -->|HTML Render| UI
 
-    PHP <-->|Query SQL (CRUD)| DB
-    PHP -->|Simpan Gambar (move_uploaded_file)| Folder
+    PHP <-->|Query SQL CRUD| DB
+    PHP -->|Simpan Gambar| Folder
 ```
-
 ### Database Schema (ERD)
 
 ```
