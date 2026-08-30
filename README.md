@@ -96,26 +96,21 @@
 
 ### Live Demo
 
-🔗 **[Kunjungi Website](https://[URL_DEMO])**
+🔗 **[Kunjungi Website](https://laporwarga.infinityfree.io/)**
 
 ### Screenshot Aplikasi
 
 <div align="center">
-  <img src="[URL_SCREENSHOT_1]" alt="Homepage" width="800"/>
-  <p><em>Homepage - Tampilan utama aplikasi</em></p>
+  <img src="[URL_SCREENSHOT_1.png]" alt="Homepage" width="800"/>
+  <p><em>Homepage - Menampilkan grafik progres perbaikan dan daftar laporan aktif</em></p>
   
-  <img src="[URL_SCREENSHOT_2]" alt="Dashboard" width="800"/>
-  <p><em>Dashboard - Panel kontrol pengguna</em></p>
+  <img src="[URL_SCREENSHOT_2.png]" alt="Dashboard" width="800"/>
+  <p><em>Laporan - Tampilan form pengaduan dengan unggah foto bukti</em></p>
   
-  <img src="[URL_SCREENSHOT_3]" alt="Feature" width="800"/>
-  <p><em>[Nama Fitur] - [Deskripsi screenshot]</em></p>
+  <img src="[URL_SCREENSHOT_3.png]" alt="Feature" width="800"/>
+  <p><em>Akses Pengurus - Akses login Ketua RT/RW dan pembaruan status laporan</em></p>
 </div>
 
-### Video Demo
-
-📹 **[Link Video Demo](https://[URL_VIDEO])** _(opsional)_
-
----
 
 ## 🛠️ Teknologi
 
@@ -123,47 +118,41 @@
 
 #### Frontend
 ```
-Framework    : [React / Next.js / Vue / dll]
-UI Library   : [Tailwind CSS / Material-UI / Chakra UI / dll]
-State Mgmt   : [Redux / Zustand / Context API / dll]
-Validation   : [Zod / Yup / React Hook Form / dll]
+Bahasa       : HTML5, CSS3, JavaScript (Vanilla ES6)
+UI/UX        : Custom CSS dengan CSS Variables (Dukungan Dark Mode)
+Interaktivitas: Fetch API (AJAX Polling untuk Notifikasi Real-time)
 ```
 
 #### Backend
 ```
-Runtime      : [Node.js / Bun / Deno / dll]
-Framework    : [Express / Fastify / Hono / dll]
-Database     : [PostgreSQL / MongoDB / MySQL / dll]
-ORM          : [Prisma / Drizzle / TypeORM / dll]
-Auth         : [JWT / NextAuth / Clerk / dll]
+Bahasa       : PHP (Native)
+Database     : MySQL
+Environment  : XAMPP / Localhost
 ```
 
 #### DevOps & Tools
 ```
-Deployment   : [Vercel / Netlify / Railway / dll]
-CI/CD        : [GitHub Actions / Vercel / dll]
-Testing      : [Jest / Vitest / Playwright / dll]
-Monitoring   : [Sentry / LogRocket / dll]
+Deployment   : Infinityfree.io (Free PHP Hosting)
+CI/CD        : GitHub Actions (Auto-deploy via FTP to htdocs)
+Testing      : Manual Browser Testing & Postman (API Endpoint Testing)
+Monitoring   : PHP Native Error Logging & Infinityfree Control Panel Analytics
 ```
 
 ### Alasan Pemilihan Teknologi
 
 | Teknologi | Alasan Pemilihan |
 |-----------|------------------|
-| **[Tech 1]** | [Jelaskan mengapa memilih teknologi ini, keunggulannya untuk proyek ini] |
-| **[Tech 2]** | [Jelaskan mengapa memilih teknologi ini, keunggulannya untuk proyek ini] |
-| **[Tech 3]** | [Jelaskan mengapa memilih teknologi ini, keunggulannya untuk proyek ini] |
+| **PHP & MySQL** | Proses server-side yang ringan, handal, dan mudah dikonfigurasi untuk implementasi fungsi CRUD sederhana seperti pembuatan laporan dan manajemen status. |
+| **Vanilla JS & Custom CSS** | Meminimalisir ukuran file assets dari library eksternal sehingga waktu muat (load time) website sangat cepat, sangat optimal untuk pengguna seluler. |
+| **AJAX Polling** | Memungkinkan fitur Real-time Notification tanpa memerlukan infrastruktur WebSocket yang kompleks pada shared hosting. |
 
 ### Dependencies Utama
 
-```json
-{
-  "dependencies": {
-    "[package-1]": "^x.x.x",
-    "[package-2]": "^x.x.x",
-    "[package-3]": "^x.x.x"
-  }
-}
+```Karena LaporWarga dibangun menggunakan arsitektur **Native PHP** dan **Vanilla JavaScript**, proyek ini bersifat mandiri (*standalone*) dan tidak membutuhkan *package manager* eksternal seperti `npm` atau `composer`.
+Kebutuhan sistem (*system requirements*) utama untuk menjalankan aplikasi ini hanyalah:
+- **PHP**: Versi 7.4 atau lebih baru (Disarankan PHP 8+)
+- **Database**: MySQL 5.7+ atau MariaDB
+- **Web Server**: Apache / Nginx (via XAMPP/Laragon/Infinityfree)
 ```
 
 ---
@@ -173,100 +162,148 @@ Monitoring   : [Sentry / LogRocket / dll]
 ### System Architecture
 
 ```
-[Tambahkan diagram arsitektur sistem - bisa menggunakan Mermaid atau gambar]
+Diagram di bawah ini menggambarkan alur kerja aplikasi LaporWarga, mulai dari interaksi pengguna (Warga dan Admin) pada antarmuka *Frontend*, pemrosesan data di *Backend* (PHP), hingga penyimpanan ke Database dan *Local Storage*.
+
+```mermaid 
+graph TD
+    %% Styling
+    classDef user fill:#1D5C4A,stroke:#fff,stroke-width:2px,color:#fff;
+    classDef front fill:#E8B93D,stroke:#333,stroke-width:2px,color:#12211D;
+    classDef back fill:#2F7A5C,stroke:#fff,stroke-width:2px,color:#fff;
+    classDef db fill:#C1432D,stroke:#fff,stroke-width:2px,color:#fff;
+
+    %% Actors
+    Warga([Warga / Pelapor]) ::: user
+    Admin([ Admin RT/RW]) ::: user
+
+    %% System Components
+    subgraph Client [Client Side / Browser]
+        UI[Frontend UI<br/>(HTML, CSS, Vanilla JS)] ::: front
+    end
+
+    subgraph Server [Server Side / Infinityfree]
+        PHP[Backend System<br/>(PHP Native - index.php)] ::: back
+        Folder[File Storage<br/>(Folder /uploads)] ::: back
+    end
+
+    subgraph DatabaseLayer [Database Layer]
+        DB[(MySQL Database<br/>laporwarga_db)] ::: db
+    end
+
+    %% Flows
+    Warga -->|Akses Web, Lapor, Upvote| UI
+    Admin -->|Login, Update Status| UI
+    
+    UI -->|HTTP POST (Submit Form)| PHP
+    UI -.->|AJAX GET (Cek Notif Real-time)| PHP
+    PHP -.->|JSON Response| UI
+    PHP -->|HTML Render| UI
+
+    PHP <-->|Query SQL (CRUD)| DB
+    PHP -->|Simpan Gambar (move_uploaded_file)| Folder
 ```
 
-### Database Schema
+### Database Schema (ERD)
 
 ```
-[Tambahkan diagram ERD atau schema database]
+erDiagram
+    REPORTS {
+        int id PK
+        varchar title
+        varchar category
+        varchar area
+        varchar specific_address
+        text description
+        varchar author
+        varchar report_photo
+        enum status "baru, diproses, selesai"
+        int upvotes
+        timestamp created_at
+        timestamp resolved_at
+        varchar resolved_by
+        text res_note
+        varchar res_photo
+    }
+    
+    ADMINS {
+        int id PK
+        varchar role
+        varchar username
+        varchar password
+    }
+    
+    VALID_BLOCKS {
+        int id PK
+        varchar block_name
+    }
+    
+    REPORTERS {
+        int id PK
+        varchar name
+        varchar verified_area
+        timestamp created_at
+    }
+
+    %% Relationships
+    VALID_BLOCKS ||--o{ REPORTERS : "memvalidasi area"
+    REPORTERS ||--o{ REPORTS : "membuat"
+    ADMINS ||--o{ REPORTS : "menyelesaikan"
 ```
 
 ### Folder Structure
+Karena menggunakan arsitektur *Native PHP*, struktur direktori proyek ini sangat sederhana dan ringan:
 
-```
-project-root/
-├── src/
-│   ├── components/     # Reusable components
-│   ├── pages/          # Page components
-│   ├── hooks/          # Custom hooks
-│   ├── utils/          # Utility functions
-│   ├── services/       # API services
-│   ├── store/          # State management
-│   └── types/          # TypeScript types
-├── public/             # Static assets
-├── tests/              # Test files
-└── docs/               # Documentation
-```
+```text
+laporwarga/
+├── uploads/             # Direktori (auto-generated) untuk menyimpan foto lampiran laporan & bukti kerja
+├── index.php            # Berkas utama aplikasi (berisi logika Backend PHP, UI HTML, dan Vanilla JS)
+├── style.css            # Berkas styling (CSS Variables, Dark/Light Mode)
+├── laporwarga_db.sql    # Skema dan dump data awal untuk diimpor ke MySQL/MariaDB
+├── laporwarga.png       # Aset logo dan ikon web/PWA
+└── README.md            # Dokumentasi proyek
 
 ---
 
 ## ⚙️ Instalasi & Setup
 
 ### Prerequisites
-
-Pastikan Anda telah menginstall:
-- **Node.js** (v18.x atau lebih tinggi)
-- **npm** / **yarn** / **pnpm**
-- **[Database]** (jika diperlukan)
-- **Git**
+Node.js & npm (Opsional, jika ingin mengelola dependencies lain)
+XAMPP / Laragon (Apache & MySQL)
+Git
 
 ### Langkah Instalasi
 
 #### 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/[username]/[repo-name].git
-cd [repo-name]
+git clone https://github.com/thallalw/laporwarga-itechnocup26.git
+cd [laporwarga-itechnocup26]
 ```
 
-#### 2️⃣ Install Dependencies
+#### 2️⃣ Setup Server Lokal
 
-```bash
-# Menggunakan npm
-npm install
-
-# Atau menggunakan yarn
-yarn install
-
-# Atau menggunakan pnpm
-pnpm install
+```
+Pindahkan seluruh source code ke dalam direktori htdocs (jika menggunakan XAMPP) atau direktori publik web server Anda.
+Nyalakan modul Apache dan MySQL melalui XAMPP Control Panel.
 ```
 
-#### 3️⃣ Setup Environment Variables
-
-Buat file `.env` di root directory:
-
-```env
-# Database
-DATABASE_URL="[connection_string]"
-
-# Authentication
-JWT_SECRET="[your_jwt_secret]"
-NEXTAUTH_SECRET="[your_nextauth_secret]"
-
-# API Keys
-API_KEY="[your_api_key]"
-
-# Other configs
-NODE_ENV="development"
-PORT=3000
+#### 3️⃣ Setup Database
+```
+Buka antarmuka phpMyAdmin (http://localhost/phpmyadmin).
+Buat database baru dengan nama laporwarga_db.
+Import file laporwarga_db.sql yang tersedia di dalam repositori.
 ```
 
-#### 4️⃣ Setup Database
+#### 4️⃣ Konfigurasi Akses Database
 
-```bash
-# Jalankan migrasi database
-npm run db:migrate
-
-# Seed data (opsional)
-npm run db:seed
+```Jika pengaturan database lokal Anda berbeda, silakan ubah pada bagian konfigurasi di file index.php
+$host = 'localhost';$user = 'root'; 
+$pass = '';$db   = 'laporwarga_db';
 ```
 
-#### 5️⃣ Run Development Server
-
-```bash
-npm run dev
+#### 5️⃣ Membuat folder untuk code
+```buat folder laporwarga di htdocs.
+Akses aplikasi melalui browser di alamat: http://localhost/[laporwarga]/
 ```
 
 Aplikasi akan berjalan di `http://localhost:3000`
@@ -277,35 +314,27 @@ Aplikasi akan berjalan di `http://localhost:3000`
 
 ### Menjalankan Aplikasi
 
-```bash
-# Development mode
-npm run dev
+Karena menggunakan arsitektur PHP Native, aplikasi ini tidak memerlukan proses *build* atau *compile*. Anda bisa menjalankannya dengan dua cara praktis:
 
-# Production build
-npm run build
-npm run start
-
-# Run tests
-npm run test
-
-# Linting
-npm run lint
-```
+**Cara 1: Menggunakan XAMPP/Laragon (Direkomendasikan)**
+1. Pastikan folder proyek LaporWarga berada di dalam direktori publik (contoh: `htdocs` untuk XAMPP).
+2. Pastikan modul **Apache** dan **MySQL** sudah dalam status *Running* di Control Panel.
+3. Buka *browser* dan akses alamat berikut:
+   ```text
+   http://localhost/[laporwarga]/
 
 ### User Guide
 
 #### Untuk Pengguna Umum
-
-1. **Registrasi/Login**: [Jelaskan cara mendaftar atau login]
-2. **[Fitur 1]**: [Jelaskan cara menggunakan fitur ini]
-3. **[Fitur 2]**: [Jelaskan cara menggunakan fitur ini]
+1. **Verifikasi & Melapor**: Klik tombol FAB (ikon Plus/Pen) di pojok kanan bawah. Masukkan nama Blok untuk verifikasi (contoh: "Blok H").
+2. **Kirim Detail**: Lengkapi form yang mencakup kategori masalah, deskripsi kejadian, alamat spesifik, dan lampirkan foto keluhan jika ada.
+3. **Mendukung Laporan**: Untuk isu yang penting, warga bisa klik tombol Dukung (Upvote) pada daftar laporan di halaman utama.
 
 #### Untuk Admin
-
-1. **Akses Admin Panel**: [Jelaskan cara mengakses]
-2. **[Fungsi Admin 1]**: [Jelaskan cara menggunakan]
-3. **[Fungsi Admin 2]**: [Jelaskan cara menggunakan]
-
+1. **Login Pengurus**: Gulir ke bagian paling bawah halaman utama, klik tombol Akses Pengurus (Admin).
+2. **Kredensial**: Pilih peran (RT/RW). (Default password RT/RW di database: MasyarakatSentosa).
+3. **Tindak Lanjut**: Klik laporan warga, pilih Update Status.
+4. **Penyelesaian**: Jika status diubah menjadi "Penyelesaian Selesai", admin diwajibkan menulis catatan tindakan yang telah diambil dan mengunggah foto bukti perbaikannya.
 ---
 
 ## 📚 API Documentation
@@ -313,19 +342,23 @@ npm run lint
 ### Base URL
 
 ```
-Development: http://localhost:3000/api
-Production:  https://[domain]/api
+Development: http://localhost/[nama-folder]/
+Production:  https://[domain]/
 ```
 
 ### Endpoints
 
+```
+POST / (action=add_report)    # Mengirim laporan baru beserta foto
+POST / (action=update_status) # Admin memperbarui progres laporan
+POST / (action=upvote)        # Memberikan dukungan pada laporan
+POST / (action=login_admin)   # Verifikasi kredensial RT/RW
+```
 #### Authentication
 
 ```http
-POST /api/auth/register
-POST /api/auth/login
-POST /api/auth/logout
-GET  /api/auth/me
+GET /?check_notifications=1   # Endpoint JSON untuk mengecek perubahan status laporan (AJAX Polling)
+GET /?logout=1                # Menutup sesi (logout) admin
 ```
 
 #### [Resource 1]
@@ -340,19 +373,20 @@ DELETE /api/[resource]/:id   # Delete
 
 ### Example Request
 
-```javascript
-// Login
-const response = await fetch('/api/auth/login', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    email: 'user@example.com',
-    password: 'password123'
+```frontend
+// Fungsi ini berjalan secara periodik (setiap 10 detik)
+fetch('?check_notifications=1&t=' + Date.now())
+  .then(response => response.json())
+  .then(data => {
+      data.forEach(rep => {
+          console.log(`Update: Laporan ID ${rep.id} kini berstatus ${rep.status}`);
+          // Menampilkan pop-up notifikasi ke warga
+      });
   })
-});
+  .catch(error => console.error('Error fetching notifications:', error));
 ```
 
-📖 **[Dokumentasi API Lengkap](./docs/API.md)** _(opsional)_
+
 
 ---
 
@@ -360,30 +394,28 @@ const response = await fetch('/api/auth/login', {
 
 ### Running Tests
 
-```bash
-# Unit tests
-npm run test
+Aplikasi LaporWarga dibangun menggunakan arsitektur Native PHP dan Vanilla JavaScript tanpa *framework* eksternal tambahan, proses pengujian (*testing*) difokuskan pada pengujian fungsional manual (*Manual Functional Testing*) dan pengujian antarmuka (*UI/UX Testing*).
 
-# Integration tests
-npm run test:integration
+### Metode Pengujian
+Berikut adalah skenario pengujian yang telah dilakukan untuk memastikan kelancaran aplikasi:
 
-# E2E tests
-npm run test:e2e
+1. **Functional Testing (Uji Fungsionalitas)**
+   - **Form Laporan**: Memastikan warga hanya bisa melapor jika memasukkan nama blok yang valid (sesuai database)[cite: 1, 4]. Menguji proses unggah (*upload*) gambar agar masuk ke folder `uploads/` dengan format dan ukuran yang benar[cite: 1].
+   - **Sistem Upvote**: Menguji logika sesi (*session*) agar satu pengguna tidak dapat memberikan dukungan (*upvote*) berkali-kali pada laporan yang sama[cite: 1].
+   - **Portal Admin**: Memastikan pembaruan status laporan (Baru --> Diproses --> Selesai) tersimpan ke database, dan field "Catatan" & "Foto Bukti" muncul saat status diselesaikan[cite: 1].
 
-# Test coverage
-npm run test:coverage
-```
+2. **Real-time Feature Testing (Uji Notifikasi)**
+   - Menguji *endpoint* AJAX Polling (`?check_notifications=1`) dengan menggunakan dua tab *browser* yang berbeda (satu tab Warga, satu tab Admin) untuk memastikan *pop-up* notifikasi muncul seketika saat ada perubahan status[cite: 1].
+
+3. **Responsive UI & Cross-Browser Testing**
+   - Menggunakan fitur *Inspect Element (Device Toolbar)* pada browser untuk memastikan tampilan CSS responsif dan optimal di layar ponsel maupun desktop[cite: 3].
+   - Menguji kelancaran transisi antara *Light Mode* dan *Dark Mode* pada sisi klien (JavaScript & CSS Variables)[cite: 1, 3].
 
 ### Test Coverage
 
-```
-Statements   : XX%
-Branches     : XX%
-Functions    : XX%
-Lines        : XX%
-```
+Karena proyek ini menggunakan pendekatan pengujian fungsional manual (*Manual Functional Testing*), metrik *code coverage* kuantitatif (seperti persentase *Statements*, *Branches*, *Functions*, dan *Lines*) yang biasanya dihasilkan oleh *tools automated testing* tidak diterapkan. 
 
----
+Meskipun demikian, kami telah melakukan pengujian menyeluruh dan memastikan bahwa **100% fungsionalitas utama (Core Features)** dari aplikasi LaporWarga—termasuk validasi pelapor, kelancaran form unggah gambar, sistem *upvote*, akses portal admin, dan sinkronisasi notifikasi *real-time*—telah lulus uji coba dan berjalan dengan sempurna di lingkungan lokal.
 
 ## 📄 Lisensi
 
@@ -393,7 +425,7 @@ Proyek ini dilisensikan di bawah [MIT License](LICENSE) - lihat file LICENSE unt
 
 <div align="center">
 
-  **Made with ❤️ by [Nama Tim] for ITECHNO CUP 2026**
+  **Made with ❤️ by OneSoution for ITECHNO CUP 2026**
 
   
 </div>
