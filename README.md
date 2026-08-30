@@ -1,7 +1,7 @@
 <div align="center">
-  
-  # [LAPOR WARGA] 
-  ### [Sistem Pelaporan Kerusakan Fasilitas]
+  <img src="laporwarga.png" alt="Logo LaporWarga" width="150"/>
+  # [NAMA PROYEK] 
+  ### [Tagline Singkat dan Menarik]
   
   [![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Visit_Site-success?style=for-the-badge)](https://[URL_DEMO])
   [![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://[URL_REPO])
@@ -9,7 +9,7 @@
   
   **Submission for ITECHNO CUP 2026 - Web Development**
   
-  **By [OneSolution]**
+  **By [Nama Tim]**
   
 </div>
 
@@ -382,9 +382,8 @@ Proyek ini dilisensikan di bawah [MIT License](LICENSE) - lihat file LICENSE unt
 
 <div align="center">
 
-  **Made with ❤️ by OneSolution for ITECHNO CUP 2026**
+  **Made with ❤️ by [Nama Tim] for ITECHNO CUP 2026**
 
   
 </div>
-
 
