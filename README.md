@@ -49,17 +49,26 @@
 
 ### Latar Belakang
 
-[Jelaskan konteks permasalahan yang ingin diselesaikan. Gunakan data atau fakta untuk memperkuat argumen. Contoh: "Berdasarkan survei X, 70% pengguna mengalami kesulitan dalam..."]
+[Dalam lingkungan tempat tinggal (RT/RW), proses pelaporan masalah fasilitas umum seringkali tidak terstruktur, sulit dilacak, dan kurang transparan. Warga sering tidak tahu apakah laporan mereka (seperti pipa bocor, jalan rusak, atau masalah keamanan) sudah ditangani oleh pengurus atau belum."]
 
 ### Solusi yang Ditawarkan
 
-[Jelaskan bagaimana aplikasi ini menyelesaikan masalah tersebut dengan pendekatan yang unik atau inovatif]
+[**LaporWarga** hadir sebagai platform pelaporan digital yang interaktif dan transparan. Warga dapat memantau status perbaikan secara *real-time*, memberikan dukungan (*upvote*) pada laporan warga lain, dan pengurus dapat dengan mudah memperbarui progres penanganan beserta bukti foto kerja secara langsung.]
 
 ### Tujuan Proyek
 
-- 🎯 **Tujuan Utama**: [Tujuan primer aplikasi]
-- 📊 **Target Pengguna**: [Siapa yang akan menggunakan aplikasi ini]
-- 💡 **Value Proposition**: [Apa yang membuat aplikasi ini berbeda dari solusi lain]
+- 🎯 **Tujuan Utama**: Menciptakan sistem pelaporan lingkungan yang transparan, cepat, dan mudah diakses oleh warga maupun pengurus RT/RW.
+- 📊 **Target Pengguna**: Warga perumahan/komplek dan jajaran pengurus RT/RW setempat.
+- 💡 **Value Proposition**: LaporWarga bukan sekadar formulir pengaduan biasa, melainkan platform yang didesain untuk menjembatani komunikasi efektif antara warga dan pengurus lingkungan. Berikut adalah keunggulan utama aplikasi ini:
+
+1. **Anti-Spam & Laporan Valid (Verified Residence)**
+   Sistem mewajibkan pengguna untuk memverifikasi domisili mereka (berdasarkan data blok perumahan yang sah) sebelum melapor[cite: 1, 4]. Ini memastikan bahwa setiap laporan yang masuk berasal dari warga asli, bukan dari pihak luar yang tidak bertanggung jawab.
+2. **Penentuan Prioritas Berbasis Komunitas (Upvote System)**
+   Masalah yang paling banyak mendapatkan dukungan (*upvote*) dari warga lain akan lebih mudah diidentifikasi[cite: 1]. Hal ini membantu pengurus RT/RW bekerja lebih efisien dengan memprioritaskan masalah yang paling mendesak bagi banyak orang.
+3. **Transparansi Bukti Kerja (Evidence-Based Resolution)**
+   Aplikasi mencegah perbaikan yang "hanya sekadar janji". Saat pengurus menandai laporan telah "Selesai", sistem mewajibkan mereka untuk menuliskan rincian tindakan dan melampirkan foto bukti hasil kerja[cite: 1].
+4. **Performa Ringan & Inklusif (Mendukung SDG 11)**
+   Dibangun dengan teknologi *Native/Vanilla* (tanpa memuat *framework* eksternal yang berat), LaporWarga sangat ringan dan cepat diakses[cite: 1]. Hal ini menjamin inklusivitas digital, di mana warga dengan perangkat pintar berspesifikasi rendah sekalipun tetap bisa berpartisipasi dalam membangun komunitasnya[cite: 6]
 
 ---
 
@@ -69,17 +78,17 @@
 
 | Fitur | Deskripsi | Keunggulan |
 |----------|--------------|---------------|
-| **[Nama Fitur 1]** | [Deskripsi singkat fitur] | [Mengapa fitur ini penting/unik] |
-| **[Nama Fitur 2]** | [Deskripsi singkat fitur] | [Mengapa fitur ini penting/unik] |
-| **[Nama Fitur 3]** | [Deskripsi singkat fitur] | [Mengapa fitur ini penting/unik] |
-| **[Nama Fitur 4]** | [Deskripsi singkat fitur] | [Mengapa fitur ini penting/unik] |
+| **Pelaporan Terverifikasi** | Warga dapat melapor dengan memverifikasi blok domisili (contoh: Blok H, CC2). | Mencegah *spam* dan memastikan laporan berasal dari warga asli wilayah tersebut. |
+| **Portal Admin RT/RW** | Akses khusus pengurus untuk memperbarui status laporan (Baru, Diproses, Selesai) dilengkapi dengan bukti foto perbaikan. | Memberikan transparansi aksi nyata dari pengurus secara langsung kepada warga. |
+| **Sistem Dukungan (Upvote)** | Warga lain dapat memberikan 1 dukungan (*upvote*) pada laporan yang sama. | Membantu pengurus memprioritaskan penyelesaian masalah yang paling banyak dikeluhkan. |
+| **Notifikasi Real-time** | Peringatan *pop-up* otomatis saat ada perubahan status laporan dari admin. | Warga tidak perlu memuat ulang halaman untuk memantau kemajuan laporan. |
 
 ### Fitur Tambahan
 
-- **[Fitur A]** - [Penjelasan singkat]
-- **[Fitur B]** - [Penjelasan singkat]
-- **[Fitur C]** - [Penjelasan singkat]
-- **[Fitur D]** - [Penjelasan singkat]
+- **Arsip Lokal**: Fitur penyimpanan (*bookmark*) laporan ke *localStorage* di perangkat pengguna.
+- **Dark / Light Mode**: Tampilan UI adaptif yang nyaman digunakan siang maupun malam.
+- **Grafik Analitik**: Visualisasi persentase penyelesaian masalah (Mingguan, Bulanan, Tahunan) di *dashboard* utama.
+- **PWA (Progressive Web App) Ready**: Mendukung instalasi sebagai aplikasi di layar utama ponsel warga.
 
 ---
 
