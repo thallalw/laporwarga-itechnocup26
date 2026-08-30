@@ -2,9 +2,9 @@
 <p align="center">
     <img src="laporwarga.png" alt="Logo LaporWarga" width="150"/>
   </p> 
-    # [NAMA PROYEK] 
+     [LAPOR WARGA] 
     
-  ### [Tagline Singkat dan Menarik]
+  ### [Warga Perlu Aksi Nyata. Bukan Kata Kata!]
   
   [![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Visit_Site-success?style=for-the-badge)](https://[URL_DEMO])
   [![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://[URL_REPO])
