@@ -49,11 +49,11 @@
 
 ### Latar Belakang
 
-[Dalam lingkungan tempat tinggal (RT/RW), proses pelaporan masalah fasilitas umum seringkali tidak terstruktur, sulit dilacak, dan kurang transparan. Warga sering tidak tahu apakah laporan mereka (seperti pipa bocor, jalan rusak, atau masalah keamanan) sudah ditangani oleh pengurus atau belum."]
+Dalam lingkungan tempat tinggal (RT/RW), proses pelaporan masalah fasilitas umum seringkali tidak terstruktur, sulit dilacak, dan kurang transparan. Warga sering tidak tahu apakah laporan mereka (seperti pipa bocor, jalan rusak, atau masalah keamanan) sudah ditangani oleh pengurus atau belum."
 
 ### Solusi yang Ditawarkan
 
-[**LaporWarga** hadir sebagai platform pelaporan digital yang interaktif dan transparan. Warga dapat memantau status perbaikan secara *real-time*, memberikan dukungan (*upvote*) pada laporan warga lain, dan pengurus dapat dengan mudah memperbarui progres penanganan beserta bukti foto kerja secara langsung.]
+**LaporWarga** hadir sebagai platform pelaporan digital yang interaktif dan transparan. Warga dapat memantau status perbaikan secara *real-time*, memberikan dukungan (*upvote*) pada laporan warga lain, dan pengurus dapat dengan mudah memperbarui progres penanganan beserta bukti foto kerja secara langsung.
 
 ### Tujuan Proyek
 
@@ -250,16 +250,19 @@ erDiagram
 ```
 
 ### Folder Structure
-Karena menggunakan arsitektur *Native PHP*, struktur direktori proyek ini sangat sederhana dan ringan:
+Karena menggunakan arsitektur *Native PHP*, struktur direktori proyek ini sangat sederhana. Jika Anda menggunakan XAMPP pada Windows, letakkan folder proyek ini di dalam direktori instalasi XAMPP hingga struktur jalurnya (*path*) menjadi seperti berikut:
 
 ```text
-laporwarga/
-├── uploads/             # Direktori (auto-generated) untuk menyimpan foto lampiran laporan & bukti kerja
-├── index.php            # Berkas utama aplikasi (berisi logika Backend PHP, UI HTML, dan Vanilla JS)
-├── style.css            # Berkas styling (CSS Variables, Dark/Light Mode)
-├── laporwarga_db.sql    # Skema dan dump data awal untuk diimpor ke MySQL/MariaDB
-├── laporwarga.png       # Aset logo dan ikon web/PWA
-└── README.md            # Dokumentasi proyek
+C:\
+└── xampp/
+    └── htdocs/
+        └── laporwarga-itechnocup26/
+            ├── uploads/                 # Direktori penyimpanan foto lampiran & bukti kerja (auto-generated)
+            ├── index.php                # Berkas utama (Backend PHP, UI HTML, dan Vanilla JS)
+            ├── style.css                # Berkas styling utama (CSS Variables, Dark/Light Mode)
+            ├── laporwarga.png           # Aset logo dan ikon web/PWA
+            ├── laporwarga_db.sql        # Skema dan dump data awal untuk diimpor ke MySQL/MariaDB
+            └── README.md                # Dokumentasi proyek
 
 ---
 
